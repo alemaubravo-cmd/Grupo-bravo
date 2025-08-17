@@ -8,108 +8,106 @@
   <meta property="og:title" content="Grupo Bravo – BI & Control de Gestión" />
   <meta property="og:description" content="Dashboards ejecutivos, automatización de reportes y KPIs para decisiones rápidas." />
   <meta property="og:type" content="website" />
-  <!-- <meta property="og:image" content="https://tusitio.com/og-image.jpg" /> -->
   <meta name="theme-color" content="#0047b3" />
   <style>
     :root{
-      --accent:#0047b3; /* azul corporativo */
-      --bg:#f7f9fc;     /* fondo claro */
-      --card:#ffffff;   /* tarjetas */
-      --text:#1a202c;   /* texto principal */
-      --muted:#4a5568;  /* texto secundario */
-      --line:#e2e8f0;   /* líneas / bordes */
-      --ok:#16a34a;     /* verde ok */
-      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --primary:#0047b3;
+      --primary-700:#003a8c;
+      --primary-50:#e6f0ff;
+      --teal-500:#00b3a4;
+      --amber-500:#fdb022;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --ok:#16a34a;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
       --radius:16px;
-      --radius-sm:12px;
       --pad-section:64px;
     }
-    /* Reset/estructura básica */
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0; padding:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
-      background:var(--bg); color:var(--text);
-      line-height:1.5;
-    }
+    body{margin:0; padding:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.55}
     img{max-width:100%; height:auto; display:block}
-    a{color:var(--accent); text-decoration:none}
+    a{color:var(--primary); text-decoration:none}
     a:focus-visible, button:focus-visible{outline:3px solid rgba(0,71,179,.35); outline-offset:3px; border-radius:10px}
     .container{width:min(1100px,92%); margin-inline:auto}
     .center{text-align:center}
     .muted{color:var(--muted)}
-    .divider{height:1px; background:var(--line); margin:24px 0}
     section{scroll-margin-top:90px}
-
-    /* Header */
-    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; background:#fff; padding:10px 14px; border-radius:10px; z-index:1000; box-shadow:var(--shadow)}
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(180%) blur(8px);
-      background:rgba(255,255,255,.85);
-      border-bottom:1px solid var(--line);
-    }
+    .brandbar{height:4px; background:linear-gradient(90deg,var(--primary-700),var(--primary),var(--teal-500));}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.88); border-bottom:1px solid var(--line)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.2px}
-    .logo{
-      display:grid; place-items:center; width:38px; height:38px;
-      border-radius:10px; background:var(--accent); color:#fff;
-      font-weight:900; box-shadow:var(--shadow)
-    }
     .badge{font-size:12px; color:var(--muted); font-weight:600; margin-top:2px}
     nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
     nav a{display:inline-block; padding:10px 12px; border-radius:10px; color:inherit}
-    nav a:hover{background:#eef2ff}
+    nav a:hover{background:var(--primary-50)}
     .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--card); transition:.2s ease; font-weight:700; color:#0b1320}
     .btn:hover{transform:translateY(-1px); border-color:#a0aec0; box-shadow:var(--shadow)}
-    .btn.primary{background:var(--accent); color:#fff; border-color:transparent}
-
-    /* Hero */
+    .btn.primary{background:var(--primary); color:#fff; border-color:transparent}
+    .btn.alt{background:var(--teal-500); color:#032e2a; border-color:transparent}
     .hero{padding:calc(var(--pad-section) + 12px) 0 40px}
     .hero h1{font-size:clamp(28px,4vw,44px); line-height:1.08; margin:0 0 14px}
     .hero p{color:var(--muted); margin:0 auto 22px; max-width:780px; font-size:clamp(16px,2.3vw,18px)}
     .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#edf2f7; color:var(--muted); border:1px solid var(--line); font-size:13px}
     .cta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px}
-
-    /* Secciones */
     .section{padding:var(--pad-section) 0}
     .section h2{font-size:clamp(22px,3vw,28px); margin:0 0 8px}
     .section .lead{color:var(--muted); margin:0 auto 16px; max-width:760px}
     .grid{display:grid; gap:16px}
     @media (min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .card{
-      background:var(--card); border:1px solid var(--line); padding:18px; border-radius:var(--radius);
-      box-shadow:var(--shadow)
-    }
+    .card{background:var(--card); border:1px solid var(--line); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow)}
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted)}
     .list{display:grid; gap:10px; margin:14px 0 0; padding:0; list-style:none}
     .list li{display:flex; gap:10px; align-items:flex-start}
     .check{width:22px; height:22px; display:grid; place-items:center; border-radius:999px; background:#e2e8f0; border:1px solid var(--line)}
     .check svg{width:14px; height:14px; color:var(--ok)}
-
-    /* Logos clientes */
-    .logos{display:flex; gap:20px; flex-wrap:wrap; justify-content:center; align-items:center; opacity:.9}
+    .logos{display:flex; gap:20px; flex-wrap:wrap; justify-content:center; align-items:center; opacity:.95}
     .logo-pill{border:1px solid var(--line); background:#fff; padding:10px 14px; border-radius:12px; font-weight:700}
-
-    /* Contacto */
     .contact-card{display:grid; gap:8px; margin-top:12px}
     .contact-card a{font-weight:700}
-
-    /* Footer */
     footer{padding:28px 0 40px; color:var(--muted); border-top:1px solid var(--line); margin-top:34px}
     .foot{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between}
-    .foot small{color:var(--muted)}
+    .whatsapp{position:fixed; right:18px; bottom:18px; z-index:50}
+    .whatsapp a{display:inline-flex; gap:10px; align-items:center; background:#22c55e; color:#06240f; padding:12px 14px; border-radius:999px; font-weight:700; text-decoration:none; box-shadow:0 8px 30px rgba(34,197,94,.35)}
+    .whatsapp .icon{font-size:18px; line-height:1}
+    /* KPIs */
+    .kpis .kpi-value{font-size:clamp(28px,4vw,40px); font-weight:800}
+    .kpi{display:grid; gap:6px; align-items:center; justify-items:center}
+    /* Capturas */
+    .shots{display:grid; gap:16px}
+    @media(min-width:800px){.shots{grid-template-columns:repeat(3,1fr)}}
+    figure{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow); margin:0}
+    figure img{width:100%; border-radius:12px; display:block}
+    figure figcaption{margin-top:8px; font-weight:600; color:var(--muted); text-align:center}
   </style>
 </head>
 <body>
-  <a class="skip" href="#contenido">Ir al contenido</a>
+  <div class="brandbar" aria-hidden="true"></div>
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true">∎</div>
+        <!-- Logo SVG inline -->
+        <svg id="gb-logo" width="38" height="38" viewBox="0 0 64 64" role="img" aria-label="Logo Grupo Bravo">
+          <defs>
+            <linearGradient id="gbGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#003a8c"/>
+              <stop offset="100%" stop-color="#0047b3"/>
+            </linearGradient>
+            <mask id="gNotch">
+              <rect width="64" height="64" fill="#fff"/>
+              <rect x="30" y="22" width="20" height="10" fill="#000"/>
+            </mask>
+          </defs>
+          <rect rx="14" ry="14" width="64" height="64" fill="url(#gbGrad)"/>
+          <circle cx="28" cy="32" r="14" fill="none" stroke="#ffffff" stroke-width="8" mask="url(#gNotch)"/>
+          <rect x="38" y="20" width="6" height="24" fill="#ffffff"/>
+          <circle cx="44" cy="28" r="6" fill="#ffffff"/>
+          <circle cx="44" cy="40" r="6" fill="#ffffff"/>
+        </svg>
         <div>
           Grupo Bravo
           <div class="badge">Datos claros, decisiones inteligentes</div>
@@ -117,7 +115,10 @@
       </div>
       <nav aria-label="Principal">
         <ul>
+          <li><a href="#impacto">Impacto</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#capturas">Capturas</a></li>
           <li><a href="#porque">Por qué elegirnos</a></li>
           <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -133,11 +134,11 @@
     <!-- HERO -->
     <section class="hero center container">
       <span class="pill">Consultoría en BI & Control de Gestión</span>
-      <h1>Dashboards, BI y control de gestión para <span style="color:var(--accent)">pymes y empresas</span></h1>
+      <h1>Dashboards, BI y control de gestión para <span style="color:var(--primary)">pymes y empresas</span></h1>
       <p>Somos Grupo Bravo. Implementamos dashboards ejecutivos y automatizamos reportes (Excel/SAP/Power BI) para que tomes decisiones con datos claros. Respuesta el mismo día y soporte cercano.</p>
       <div class="cta">
         <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Quiero cotizar</a>
-        <a class="btn" href="#servicios">Ver servicios</a>
+        <a class="btn alt js-wa" href="#" target="_blank" rel="noopener">Hablar por WhatsApp</a>
       </div>
       <div class="logos" style="margin-top:22px">
         <span class="logo-pill">Ventas</span>
@@ -145,6 +146,27 @@
         <span class="logo-pill">Operaciones</span>
         <span class="logo-pill">Finanzas</span>
       </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section id="impacto" class="section container center">
+      <h2>Impacto en números</h2>
+      <p class="lead">Indicadores referenciales de proyectos similares.</p>
+      <div class="grid cols-3 kpis" style="margin-top:12px">
+        <div class="card kpi">
+          <div class="kpi-value" data-target="70" data-suffix="%">0%</div>
+          <div class="muted">menos tiempo preparando reportes</div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-value" data-target="6" data-suffix=" h/sem">0 h/sem</div>
+          <div class="muted">ahorro en tareas repetitivas</div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-value" data-target="1" data-suffix=" clic">0 clic</div>
+          <div class="muted">actualizaciones centralizadas</div>
+        </div>
+      </div>
+      <p class="mini muted" style="margin-top:8px">*Valores ilustrativos; el impacto real se define en diagnóstico.</p>
     </section>
 
     <!-- SERVICIOS -->
@@ -164,6 +186,46 @@
           <h3>KPIs y control de gestión</h3>
           <p>Ventas, productividad y rentabilidad en un solo lugar.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- CASOS -->
+    <section id="casos" class="section container center">
+      <h2>Casos & Resultados</h2>
+      <p class="lead">Ejemplos de entregables y mejoras logradas.</p>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card">
+          <h3>Retail</h3>
+          <p>Dashboard de ventas en 2 semanas. Top productos, margen y forecast.</p>
+        </div>
+        <div class="card">
+          <h3>Salud</h3>
+          <p>Control de equipos 4008/5008, instalación y KPIs de productividad.</p>
+        </div>
+        <div class="card">
+          <h3>Servicios</h3>
+          <p>Precios mínimos país y análisis de desviaciones por cliente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPTURAS -->
+    <section id="capturas" class="section container center">
+      <h2>Capturas de entregables</h2>
+      <p class="lead">Muestras representativas de dashboards y reportes implementados.</p>
+      <div class="shots" style="margin-top:12px">
+        <figure>
+          <img src="assets/captura-ventas.png" alt="Dashboard de Ventas con barras y KPIs" loading="lazy" />
+          <figcaption>Dashboard Ventas</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/captura-productividad.png" alt="Panel de Productividad con velocímetro" loading="lazy" />
+          <figcaption>Productividad & Velocímetro</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/captura-kpis.png" alt="Resumen de KPIs con tarjetas y tabla" loading="lazy" />
+          <figcaption>KPIs Ejecutivos</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -202,7 +264,7 @@
       </div>
     </section>
 
-    <div class="divider container"></div>
+    <div class="container" style="height:1px; background:var(--line)"></div>
 
     <!-- CONTACTO -->
     <section id="contacto" class="section container">
@@ -213,17 +275,22 @@
         <div class="muted">Ubicación (opcional): agrega tu ciudad o un mapa de Google Maps.</div>
         <div class="cta">
           <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a id="dl-logo" class="btn" href="assets/grupo_bravo_logo.svg" download>Logo SVG</a>
+          <a id="dl-logo-png-256" class="btn" href="assets/grupo_bravo_logo_256.png" download>Logo PNG 256</a>
+          <a id="dl-logo-png-512" class="btn" href="assets/grupo_bravo_logo_512.png" download>Logo PNG 512</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container foot">
       <small>© <span id="y"></span> Grupo Bravo · Todos los derechos reservados</small>
       <div class="muted" style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="#impacto">Impacto</a>
         <a href="#servicios">Servicios</a>
+        <a href="#casos">Casos</a>
+        <a href="#capturas">Capturas</a>
         <a href="#porque">Por qué elegirnos</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
@@ -231,7 +298,6 @@
     </div>
   </footer>
 
-  <!-- Botón flotante WhatsApp -->
   <div class="whatsapp" aria-hidden="true">
     <a class="js-wa" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
       <span class="icon" aria-hidden="true">💬</span>
@@ -240,15 +306,12 @@
   </div>
 
   <script>
-    // 🔧 Cambia solo esta línea (formato: 569XXXXXXXX)
-    const PHONE = '56900000000'; // <-- Reemplaza este número
+    // ✅ Cambia SOLO esta línea a tu número: 569XXXXXXXX
+    const PHONE = '56900000000';
     const WA_TEXT = encodeURIComponent('Hola, quiero cotizar con Grupo Bravo');
     const WA_URL  = `https://wa.me/${PHONE}?text=${WA_TEXT}`;
-
-    // Setear enlaces de WhatsApp
     document.querySelectorAll('a.js-wa').forEach(a => a.href = WA_URL);
 
-    // Teléfono visible + enlace tel:
     const prettyPhone = PHONE.length === 11 && PHONE.startsWith('569')
       ? `+56 9 ${PHONE.slice(3,7)} ${PHONE.slice(7)}`
       : `+${PHONE}`;
@@ -257,24 +320,35 @@
       a.textContent = prettyPhone;
     });
 
-    // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 
-  <!-- JSON-LD (completa cuando tengas dominio/logo) -->
-  <!--
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Grupo Bravo",
-    "url":"https://tudominio.cl",
-    "logo":"https://tudominio.cl/logo.png",
-    "sameAs":[]
-  }
+    // Animación KPIs al entrar en vista
+    (function(){
+      const counters = document.querySelectorAll('.kpi-value');
+      if(!counters.length) return;
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            const el = entry.target; const target = parseFloat(el.dataset.target)||0; const suffix = el.dataset.suffix||'';
+            let startTs; const duration = 1000;
+            function step(ts){
+              if(!startTs) startTs = ts;
+              const p = Math.min((ts - startTs)/duration,1);
+              const val = Math.floor(p*target);
+              el.textContent = `${val}${suffix}`;
+              if(p<1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+            obs.unobserve(el);
+          }
+        });
+      },{threshold:0.3});
+      counters.forEach(c=>obs.observe(c));
+    })();
   </script>
-  -->
 </body>
 </html>
+
+
 
 
