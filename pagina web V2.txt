@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grupo Bravo – Página oficial</title>
+  <meta name="description" content="Servicios de implementaciones rápidas de dashboards ejecutivos y automatización de reportes (Excel/SAP/Power BI). Atención rápida por WhatsApp." />
+  <style>
+    :root{
+      --accent:#2563eb; /* azul eléctrico */
+      --bg:#0b1220;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --ok:#16a34a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif; background:linear-gradient(180deg,var(--bg),#0e1729); color:var(--text)}
+    a{color:inherit}
+    .container{width:min(1100px,92%); margin-inline:auto}
+    header{position:sticky; top:0; z-index:30; backdrop-filter:saturate(180%) blur(8px); background:rgba(11,18,32,.6); border-bottom:1px solid #1f2937}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px}
+    .badge{font-size:12px; color:var(--muted)}
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid #1f2937; background:#0f1b31; text-decoration:none; transition:.2s ease; font-weight:600}
+    .btn:hover{transform:translateY(-1px); border-color:#2a3b66}
+    .btn.primary{background:var(--accent); color:white; border-color:transparent}
+    .hero{padding:70px 0 30px; text-align:center}
+    .hero h1{font-size: clamp(28px, 4vw, 46px); line-height:1.05; margin:0 0 12px}
+    .hero p{color:var(--muted); margin:0 auto 22px; max-width:800px; font-size:clamp(15px,2.3vw,18px)}
+    .grid{display:grid; gap:16px}
+    @media(min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:linear-gradient(180deg,var(--card),#0f172a); border:1px solid #1f2937; padding:18px; border-radius:16px}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
+    .section{padding:26px 0}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#0f1b31; color:var(--muted); border:1px solid #1f2937; font-size:13px}
+    .list{display:grid; gap:10px; margin:14px 0 0; padding:0; list-style:none}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .check{width:22px; height:22px; display:inline-grid; place-items:center; border-radius:999px; background:#0b1327; border:1px solid #1f2937}
+    .check svg{width:14px; height:14px; color:var(--ok)}
+    footer{padding:30px 0; color:#94a3b8; border-top:1px solid #1f2937; margin-top:34px}
+    .cta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+    .whatsapp{position:fixed; right:18px; bottom:18px; z-index:50}
+    .whatsapp a{display:inline-flex; gap:10px; align-items:center; background:#22c55e; color:#06240f; padding:12px 14px; border-radius:999px; font-weight:700; text-decoration:none; box-shadow:0 8px 30px rgba(34,197,94,.35)}
+    .whatsapp .icon{font-size:18px; line-height:1}
+    .divider{height:1px; background:#1f2937; margin:24px 0}
+    .mini{font-size:12px; color:#94a3b8}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span style="display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--accent);color:white; font-weight:900">∎</span>
+        <div>
+          Grupo Bravo
+          <div class="badge">Datos claros, decisiones inteligentes</div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#servicios">Servicios</a>
+        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="pill">Lanzamiento rápido · Hosting gratuito</span>
+      <h1>Dashboards, BI y control de gestión para <span style="color:var(--accent)">pymes y empresas</span></h1>
+      <p>Somos Grupo Bravo. Te ayudamos con implementaciones rápidas de dashboards ejecutivos y automatización de reportes (Excel/SAP/Power BI). Atención el mismo día y soporte cercano.</p>
+      <div class="cta" style="margin-top:12px">
+        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Quiero cotizar</a>
+        <a class="btn" href="#contacto">Ver contacto</a>
+      </div>
+    </section>
+
+    <section id="servicios" class="section">
+      <h2>Servicios</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card">
+          <h3>Dashboards ejecutivos (Power BI / Excel)</h3>
+          <p>KPI y vistas gerenciales para decisiones rápidas.</p>
+        </div>
+        <div class="card">
+          <h3>Automatización de reportes</h3>
+          <p>Power Query, ETL y macros para ahorrar horas de trabajo.</p>
+        </div>
+        <div class="card">
+          <h3>KPIs y control de gestión</h3>
+          <p>Ventas, productividad y rentabilidad en un solo lugar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>¿Por qué elegirnos?</h2>
+      <ul class="list">
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Respuesta en menos de 1 hora por WhatsApp.</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Precios claros y sin letra chica.</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Garantía de satisfacción.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Testimonios</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card"><p>“Excelente servicio, rápido y profesional.”</p><p class="mini">— Cliente A</p></div>
+        <div class="card"><p>“Nos ayudaron a lanzar en un día.”</p><p class="mini">— Cliente B</p></div>
+        <div class="card"><p>“Comunicación 10/10 por WhatsApp.”</p><p class="mini">— Cliente C</p></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <p>Correo: <a href="mailto:contacto@grupobravo.com">contacto@grupobravo.com</a> · Teléfono: <a class="js-tel" href="tel:+56900000000">+56 9 0000 0000</a></p>
+      <p class="mini">Ubicación (opcional): Puedes insertar aquí un mapa de Google Maps o escribir tu ciudad.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="y"></span> Grupo Bravo · Todos los derechos reservados</div>
+    </div>
+  </footer>
+
+  <div class="whatsapp">
+    <a class="js-wa" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+      <span class="icon" aria-hidden="true">💬</span>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // 🔧 Cambia solo esta línea (formato: 569XXXXXXXX)
+    const PHONE = '56900000000'; // <-- Reemplaza este número
+    const WA_TEXT = encodeURIComponent('Hola, quiero cotizar con Grupo Bravo');
+    const WA_URL  = `https://wa.me/${PHONE}?text=${WA_TEXT}`;
+
+    // Botones de WhatsApp (header, hero y burbuja)
+    document.querySelectorAll('a.js-wa').forEach(a => a.href = WA_URL);
+
+    // Teléfono visible y enlace tel:
+    document.querySelectorAll('a.js-tel').forEach(a => {
+      a.href = `tel:+${PHONE}`;
+      a.textContent = `+${PHONE.substring(0,2)} ${PHONE.substring(2,3)} ${PHONE.substring(3,7)} ${PHONE.substring(7,11)}`;
+    });
+
+    // Año en footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
