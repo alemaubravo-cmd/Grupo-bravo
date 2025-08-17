@@ -146,7 +146,7 @@
     // Teléfono visible y enlace tel:
     document.querySelectorAll('a.js-tel').forEach(a => {
       a.href = `tel:+${PHONE}`;
-      a.textContent = `+${PHONE.substring(0,2)} ${PHONE.substring(2,3)} ${PHONE.substring(3,7)} ${PHONE.substring(7,11)}`;
+      a.textContent = `+${PHONE}`;
     });
 
     // Año en footer
