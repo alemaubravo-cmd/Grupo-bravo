@@ -1,159 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grupo Bravo – Página oficial</title>
-  <meta name="description" content="Servicios de implementaciones rápidas de dashboards ejecutivos y automatización de reportes (Excel/SAP/Power BI). Atención rápida por WhatsApp." />
-  <style>
-    :root{
-      --accent:#0047b3; /* azul oscuro corporativo */
-      --bg:#f7f9fc; /* blanco grisáceo */
-      --card:#ffffff; /* blanco */
-      --text:#1a202c; /* gris oscuro */
-      --muted:#4a5568; /* gris medio */
-      --ok:#16a34a;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0; padding:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif; background:var(--bg); color:var(--text)}
-    a{color:var(--accent)}
-    .container{width:min(1100px,92%); margin-inline:auto}
-    header{position:sticky; top:0; z-index:30; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.8); border-bottom:1px solid #e2e8f0; color:var(--text)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px}
-    .badge{font-size:12px; color:var(--muted)}
-    .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid #cbd5e0; background:var(--card); text-decoration:none; transition:.2s ease; font-weight:600}
-    .btn:hover{transform:translateY(-1px); border-color:#a0aec0}
-    .btn.primary{background:var(--accent); color:white; border-color:transparent}
-    .hero{padding:70px 0 30px; text-align:center}
-    .hero h1{font-size: clamp(28px, 4vw, 46px); line-height:1.05; margin:0 0 12px}
-    .hero p{color:var(--muted); margin:0 auto 22px; max-width:800px; font-size:clamp(15px,2.3vw,18px)}
-    .grid{display:grid; gap:16px}
-    @media(min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card); border:1px solid #e2e8f0; padding:18px; border-radius:16px}
-    .card h3{margin:0 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted)}
-    .section{padding:26px 0}
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#e2e8f0; color:var(--muted); border:1px solid #cbd5e0; font-size:13px}
-    .list{display:grid; gap:10px; margin:14px 0 0; padding:0; list-style:none}
-    .list li{display:flex; gap:10px; align-items:flex-start}
-    .check{width:22px; height:22px; display:inline-grid; place-items:center; border-radius:999px; background:#e2e8f0; border:1px solid #cbd5e0}
-    .check svg{width:14px; height:14px; color:var(--ok)}
-    footer{padding:30px 0; color:var(--muted); border-top:1px solid #e2e8f0; margin-top:34px}
-    .cta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
-    .whatsapp{position:fixed; right:18px; bottom:18px; z-index:50}
-    .whatsapp a{display:inline-flex; gap:10px; align-items:center; background:#22c55e; color:white; padding:12px 14px; border-radius:999px; font-weight:700; text-decoration:none; box-shadow:0 8px 30px rgba(34,197,94,.35)}
-    .whatsapp .icon{font-size:18px; line-height:1}
-    .divider{height:1px; background:#e2e8f0; margin:24px 0}
-    .mini{font-size:12px; color:var(--muted)}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grupo Bravo – Página oficial</title>
+  <meta name="description" content="Implementaciones rápidas de dashboards ejecutivos y automatización de reportes (Excel/SAP/Power BI). Atención rápida por WhatsApp." />
+  <meta property="og:title" content="Grupo Bravo – BI & Control de Gestión" />
+  <meta property="og:description" content="Dashboards ejecutivos, automatización de reportes y KPIs para decisiones rápidas." />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="https://tusitio.com/og-image.jpg" /> -->
+  <meta name="theme-color" content="#0047b3" />
+  <style>
+    :root{
+      --accent:#0047b3; /* azul corporativo */
+      --bg:#f7f9fc;     /* fondo claro */
+      --card:#ffffff;   /* tarjetas */
+      --text:#1a202c;   /* texto principal */
+      --muted:#4a5568;  /* texto secundario */
+      --line:#e2e8f0;   /* líneas / bordes */
+      --ok:#16a34a;     /* verde ok */
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:16px;
+      --radius-sm:12px;
+      --pad-section:64px;
+    }
+    /* Reset/estructura básica */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; padding:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+      background:var(--bg); color:var(--text);
+      line-height:1.5;
+    }
+    img{max-width:100%; height:auto; display:block}
+    a{color:var(--accent); text-decoration:none}
+    a:focus-visible, button:focus-visible{outline:3px solid rgba(0,71,179,.35); outline-offset:3px; border-radius:10px}
+    .container{width:min(1100px,92%); margin-inline:auto}
+    .center{text-align:center}
+    .muted{color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:24px 0}
+    section{scroll-margin-top:90px}
+
+    /* Header */
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; background:#fff; padding:10px 14px; border-radius:10px; z-index:1000; box-shadow:var(--shadow)}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(180%) blur(8px);
+      background:rgba(255,255,255,.85);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.2px}
+    .logo{
+      display:grid; place-items:center; width:38px; height:38px;
+      border-radius:10px; background:var(--accent); color:#fff;
+      font-weight:900; box-shadow:var(--shadow)
+    }
+    .badge{font-size:12px; color:var(--muted); font-weight:600; margin-top:2px}
+    nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
+    nav a{display:inline-block; padding:10px 12px; border-radius:10px; color:inherit}
+    nav a:hover{background:#eef2ff}
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--card); transition:.2s ease; font-weight:700; color:#0b1320}
+    .btn:hover{transform:translateY(-1px); border-color:#a0aec0; box-shadow:var(--shadow)}
+    .btn.primary{background:var(--accent); color:#fff; border-color:transparent}
+
+    /* Hero */
+    .hero{padding:calc(var(--pad-section) + 12px) 0 40px}
+    .hero h1{font-size:clamp(28px,4vw,44px); line-height:1.08; margin:0 0 14px}
+    .hero p{color:var(--muted); margin:0 auto 22px; max-width:780px; font-size:clamp(16px,2.3vw,18px)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#edf2f7; color:var(--muted); border:1px solid var(--line); font-size:13px}
+    .cta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px}
+
+    /* Secciones */
+    .section{padding:var(--pad-section) 0}
+    .section h2{font-size:clamp(22px,3vw,28px); margin:0 0 8px}
+    .section .lead{color:var(--muted); margin:0 auto 16px; max-width:760px}
+    .grid{display:grid; gap:16px}
+    @media (min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{
+      background:var(--card); border:1px solid var(--line); padding:18px; border-radius:var(--radius);
+      box-shadow:var(--shadow)
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
+    .list{display:grid; gap:10px; margin:14px 0 0; padding:0; list-style:none}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .check{width:22px; height:22px; display:grid; place-items:center; border-radius:999px; background:#e2e8f0; border:1px solid var(--line)}
+    .check svg{width:14px; height:14px; color:var(--ok)}
+
+    /* Logos clientes */
+    .logos{display:flex; gap:20px; flex-wrap:wrap; justify-content:center; align-items:center; opacity:.9}
+    .logo-pill{border:1px solid var(--line); background:#fff; padding:10px 14px; border-radius:12px; font-weight:700}
+
+    /* Contacto */
+    .contact-card{display:grid; gap:8px; margin-top:12px}
+    .contact-card a{font-weight:700}
+
+    /* Footer */
+    footer{padding:28px 0 40px; color:var(--muted); border-top:1px solid var(--line); margin-top:34px}
+    .foot{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between}
+    .foot small{color:var(--muted)}
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <span style="display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--accent);color:white; font-weight:900">∎</span>
-        <div>
-          Grupo Bravo
-          <div class="badge">Datos claros, decisiones inteligentes</div>
-        </div>
-      </div>
-      <div class="cta">
-        <a class="btn" href="#servicios">Servicios</a>
-        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
-      </div>
-    </div>
-  </header>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">∎</div>
+        <div>
+          Grupo Bravo
+          <div class="badge">Datos claros, decisiones inteligentes</div>
+        </div>
+      </div>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#porque">Por qué elegirnos</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Escríbenos</a>
+      </div>
+    </div>
+  </header>
 
-  <main class="container">
-    <section class="hero">
-      <span class="pill">Lanzamiento rápido · Hosting gratuito</span>
-      <h1>Dashboards, BI y control de gestión para <span style="color:var(--accent)">pymes y empresas</span></h1>
-      <p>Somos Grupo Bravo. Te ayudamos con implementaciones rápidas de dashboards ejecutivos y automatización de reportes (Excel/SAP/Power BI). Atención el mismo día y soporte cercano.</p>
-      <div class="cta" style="margin-top:12px">
-        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Quiero cotizar</a>
-        <a class="btn" href="#contacto">Ver contacto</a>
-      </div>
-    </section>
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero center container">
+      <span class="pill">Consultoría en BI & Control de Gestión</span>
+      <h1>Dashboards, BI y control de gestión para <span style="color:var(--accent)">pymes y empresas</span></h1>
+      <p>Somos Grupo Bravo. Implementamos dashboards ejecutivos y automatizamos reportes (Excel/SAP/Power BI) para que tomes decisiones con datos claros. Respuesta el mismo día y soporte cercano.</p>
+      <div class="cta">
+        <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Quiero cotizar</a>
+        <a class="btn" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="logos" style="margin-top:22px">
+        <span class="logo-pill">Ventas</span>
+        <span class="logo-pill">Marketing</span>
+        <span class="logo-pill">Operaciones</span>
+        <span class="logo-pill">Finanzas</span>
+      </div>
+    </section>
 
-    <section id="servicios" class="section">
-      <h2>Servicios</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="card">
-          <h3>Dashboards ejecutivos (Power BI / Excel)</h3>
-          <p>KPI y vistas gerenciales para decisiones rápidas.</p>
-        </div>
-        <div class="card">
-          <h3>Automatización de reportes</h3>
-          <p>Power Query, ETL y macros para ahorrar horas de trabajo.</p>
-        </div>
-        <div class="card">
-          <h3>KPIs y control de gestión</h3>
-          <p>Ventas, productividad y rentabilidad en un solo lugar.</p>
-        </div>
-      </div>
-    </section>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section container center">
+      <h2>Servicios</h2>
+      <p class="lead">Soluciones enfocadas en impacto rápido y medible.</p>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card">
+          <h3>Dashboards ejecutivos (Power BI / Excel)</h3>
+          <p>KPI y vistas gerenciales para decisiones rápidas.</p>
+        </div>
+        <div class="card">
+          <h3>Automatización de reportes</h3>
+          <p>Power Query, ETL y macros para ahorrar horas de trabajo.</p>
+        </div>
+        <div class="card">
+          <h3>KPIs y control de gestión</h3>
+          <p>Ventas, productividad y rentabilidad en un solo lugar.</p>
+        </div>
+      </div>
+    </section>
 
-    <section class="section">
-      <h2>¿Por qué elegirnos?</h2>
-      <ul class="list">
-        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Respuesta en menos de 1 hora por WhatsApp.</li>
-        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Precios claros y sin letra chica.</li>
-        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Garantía de satisfacción.</li>
-      </ul>
-    </section>
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section id="porque" class="section container">
+      <h2 class="center">¿Por qué elegirnos?</h2>
+      <ul class="list" style="max-width:800px; margin-inline:auto">
+        <li>
+          <span class="check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          Respuesta en menos de 1 hora por WhatsApp.
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          Precios claros y sin letra chica.
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          Garantía de satisfacción.
+        </li>
+      </ul>
+    </section>
 
-    <section class="section">
-      <h2>Testimonios</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="card"><p>“Excelente servicio, rápido y profesional.”</p><p class="mini">— Cliente A</p></div>
-        <div class="card"><p>“Nos ayudaron a lanzar en un día.”</p><p class="mini">— Cliente B</p></div>
-        <div class="card"><p>“Comunicación 10/10 por WhatsApp.”</p><p class="mini">— Cliente C</p></div>
-      </div>
-    </section>
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="section container center">
+      <h2>Testimonios</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card"><p>“Excelente servicio, rápido y profesional.”</p><p class="muted">— Cliente A</p></div>
+        <div class="card"><p>“Nos ayudaron a lanzar en un día.”</p><p class="muted">— Cliente B</p></div>
+        <div class="card"><p>“Comunicación 10/10 por WhatsApp.”</p><p class="muted">— Cliente C</p></div>
+      </div>
+    </section>
 
-    <div class="divider"></div>
+    <div class="divider container"></div>
 
-    <section id="contacto" class="section">
-      <h2>Contacto</h2>
-      <p>Correo: <a href="mailto:contacto@grupobravo.com">contacto@grupobravo.com</a> · Teléfono: <a class="js-tel" href="tel:+56900000000">+56 9 0000 0000</a></p>
-      <p class="mini">Ubicación (opcional): Puedes insertar aquí un mapa de Google Maps o escribir tu ciudad.</p>
-    </section>
-  </main>
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container">
+      <h2 class="center">Contacto</h2>
+      <div class="card contact-card" style="max-width:720px; margin-inline:auto">
+        <div><strong>Correo:</strong> <a href="mailto:contacto@grupobravo.com">contacto@grupobravo.com</a></div>
+        <div><strong>Teléfono:</strong> <a class="js-tel" href="tel:+56900000000">+56 9 0000 0000</a></div>
+        <div class="muted">Ubicación (opcional): agrega tu ciudad o un mapa de Google Maps.</div>
+        <div class="cta">
+          <a class="btn primary js-wa" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    <div class="container">
-      <div>© <span id="y"></span> Grupo Bravo · Todos los derechos reservados</div>
-      <div>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot">
+      <small>© <span id="y"></span> Grupo Bravo · Todos los derechos reservados</small>
+      <div class="muted" style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="#servicios">Servicios</a>
+        <a href="#porque">Por qué elegirnos</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
 
-  <div class="whatsapp">
-    <a class="js-wa" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-      <span class="icon" aria-hidden="true">💬</span>
-      WhatsApp
-    </a>
-  </div>
+  <!-- Botón flotante WhatsApp -->
+  <div class="whatsapp" aria-hidden="true">
+    <a class="js-wa" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+      <span class="icon" aria-hidden="true">💬</span>
+      WhatsApp
+    </a>
+  </div>
 
-  <script>
-    // 🔧 Cambia solo esta línea (formato: 569XXXXXXXX)
-    const PHONE = '56900000000'; // <-- Reemplaza este número
-    const WA_TEXT = encodeURIComponent('Hola, quiero cotizar con Grupo Bravo');
-    const WA_URL  = `https://wa.me/${PHONE}?text=${WA_TEXT}`;
+  <script>
+    // 🔧 Cambia solo esta línea (formato: 569XXXXXXXX)
+    const PHONE = '56900000000'; // <-- Reemplaza este número
+    const WA_TEXT = encodeURIComponent('Hola, quiero cotizar con Grupo Bravo');
+    const WA_URL  = `https://wa.me/${PHONE}?text=${WA_TEXT}`;
 
-    // Botones de WhatsApp (header, hero y burbuja)
-    document.querySelectorAll('a.js-wa').forEach(a => a.href = WA_URL);
+    // Setear enlaces de WhatsApp
+    document.querySelectorAll('a.js-wa').forEach(a => a.href = WA_URL);
 
-    // Teléfono visible y enlace tel:
-    document.querySelectorAll('a.js-tel').forEach(a => {
-      a.href = `tel:+${PHONE}`;
-      a.textContent = `+${PHONE}`;
-    });
+    // Teléfono visible + enlace tel:
+    const prettyPhone = PHONE.length === 11 && PHONE.startsWith('569')
+      ? `+56 9 ${PHONE.slice(3,7)} ${PHONE.slice(7)}`
+      : `+${PHONE}`;
+    document.querySelectorAll('a.js-tel').forEach(a => {
+      a.href = `tel:+${PHONE}`;
+      a.textContent = prettyPhone;
+    });
 
-    // Año en footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    // Año en footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD (completa cuando tengas dominio/logo) -->
+  <!--
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Grupo Bravo",
+    "url":"https://tudominio.cl",
+    "logo":"https://tudominio.cl/logo.png",
+    "sameAs":[]
+  }
+  </script>
+  -->
 </body>
 </html>
+
 
